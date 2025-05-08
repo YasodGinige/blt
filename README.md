@@ -162,8 +162,6 @@ bash dev/lint.sh
 
 ## Citation
 
-The BLT is partially based on Meta Lingua, so consider citing it in addition to our BLT paper if you re-use our work.
-
 BLT Paper Citation (will be updated to arXiv soon)
 
 ```
