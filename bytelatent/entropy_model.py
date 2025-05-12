@@ -11,6 +11,7 @@ logger = logging.getLogger()
 
 
 def load_entropy_model(entropy_model_checkpoint_dir, state_dict_path, device="cpu"):
+    print('I am here')
     with open(os.path.join(entropy_model_checkpoint_dir, "params.json")) as fr:
         reloaded = json.loads(fr.read())
 
@@ -32,9 +33,11 @@ def load_entropy_model(entropy_model_checkpoint_dir, state_dict_path, device="cp
     )
     entropy_model = LMTransformer(entropy_model_args)
 
+    print('Entropy model')
     entropy_model.load_state_dict(
         torch.load(state_dict_path, map_location=device)["model"], strict=False
     )
+    print('loaded')
     entropy_model.to(device)
     entropy_model = entropy_model.eval()
     # no grads for the model:
